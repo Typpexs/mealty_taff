@@ -8,8 +8,13 @@ module.exports = class Recipe {
     get routes() { return recipe; }
 
     initRoutes() { 
-        recipe.get('/recipe/:id', function(req, res) {
-            Schemas.Recipe.findById()
+
+        recipe.get('/:id', function(req, res) {
+            let recipeId = req.params.id;
+            Schemas.Recipe.findById(recipeId, function(err, recipe) {
+                res.status(200).json({"recipe": recipe});
+            });
         });
+        
     }
 }

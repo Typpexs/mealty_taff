@@ -20,6 +20,11 @@ let routePopulate = require('./Routes/Populate');
 let populate = new routePopulate();
 app.use('/populate', populate.routes);
 
+
+let routeRecipe = require('./Routes/Recipe');
+let recipe = new routeRecipe();
+app.use('/recipe', recipe.routes);
+
 app.listen(8080, function () {
   console.log('Example app listening on port 8080!')
 })
