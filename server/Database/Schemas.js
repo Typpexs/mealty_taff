@@ -40,7 +40,13 @@ var StepSchema = new Schema({
 
 var RecipeSchema = new Schema({
     title: String,
-    ingredients: [Schema.Types.ObjectId], // IngredientSchema],
+    ingredients: [
+        {
+            ingredient: Schema.Types.ObjectId,
+            number: Number,
+            unity: Schema.Types.ObjectId
+        }    
+    ], // IngredientSchema],
     ustensils: [Schema.Types.ObjectId], // UstensilSchema],
     typeRecipeID: Schema.Types.ObjectId, //TypeRecipeSchema,
     continentID: Schema.Types.ObjectId, //ContinentSchema,

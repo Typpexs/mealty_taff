@@ -87,6 +87,7 @@ const useStyles = makeStyles(theme => ({
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
+    backgroundColor: "#f5f5f5",
   },
 }));
 
@@ -125,7 +126,7 @@ export default function TopBar() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            Mini variant drawer
+            Mealty
           </Typography>
           <Button color="inherit">Login</Button>
         </Toolbar>
@@ -152,7 +153,7 @@ export default function TopBar() {
         <Divider />
           <List>
                 {Routes.map((text, index) => (
-                    <Link to={text.path} style={{ textDecoration: 'none' }} >
+                    <Link to={text.path} style={{ textDecoration: 'none' }} key={index} >
                         <ListItem button key={index}>
                             <ListItemIcon>{text.icon}</ListItemIcon>
                             <ListItemText primary={text.sidebarName} />
@@ -168,7 +169,7 @@ export default function TopBar() {
                 <Route exact path="/">
                   <App/>
                 </Route>
-                <Route path="/recipe/5df271b67f9c262d506c338d">
+                <Route path="/recipe/5e00b02403d94a35d0445400">
                     <Recipe/>
                 </Route>
             </Switch>

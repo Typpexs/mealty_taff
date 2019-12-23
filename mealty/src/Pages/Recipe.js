@@ -1,6 +1,13 @@
 import React from 'react';
 import API from "../Config/API";
+
 import Ingredients from "../Components/Ingredients";
+import Ustensils from "../Components/Ustensils";
+import Country from "../Components/Country";
+import Continent from "../Components/Continent";
+import TypeRecipe from "../Components/TypeRecipe";
+
+import Typography from '@material-ui/core/Typography';
 import './Recipe.css'
 
 class Recipe extends React.Component {
@@ -12,7 +19,7 @@ class Recipe extends React.Component {
           isLoading: true,
           recipe: {},
           title: "",
-          ingredients: ["", ""],
+          ingredients: [],
           ustensils: [],
           typeRecipe: "",
           continent: "",
@@ -28,10 +35,16 @@ class Recipe extends React.Component {
       }
 
     componentDidMount() {
-        API.get('/recipe/5df271b67f9c262d506c338d')
+        API.get('/recipe/5e00b02403d94a35d0445400')
         .then((recipe) => {
             const data = recipe.data.recipe
-            this.setState({recipe: data, ingredients: data.ingredients});
+            this.setState({recipe: data, 
+                ingredients: data.ingredients, 
+                ustensils: data.ustensils,
+                continent: data.continentID,
+                country: data.countryID,
+                typeRecipe: data.typeRecipeID
+            });
         })
         .catch(function (error){
             console.log("ERROR : ", error)
@@ -41,17 +54,24 @@ class Recipe extends React.Component {
     render() {
         const recipe = this.state.recipe
         const ingredients = this.state.ingredients
+        const ustensils = this.state.ustensils
+        const continent = this.state.continent
+        const country = this.state.country
+        const typeRecipe = this.state.typeRecipe
         return(
         <div className="Recipe-body">
-                {/* <header className="App-header"> */}
-                <p>
-                    Edit <code>src/App.js</code> and save to reload.
-                </p>
-                <div>
+            <div>
+                <Typography variant="h6" className="Recipe-title">
                     {recipe.title}
-                    <Ingredients ingredientsArray={ingredients}/>
+                </Typography>
+                <Ingredients ingredientsArray={ingredients}/>
+                <Ustensils ustensils={ustensils} />
+                <div>
+                    <Continent id={continent} />
+                    <Country id={country} />
+                    <TypeRecipe id={typeRecipe} />
                 </div>
-            {/* </header> */}
+            </div>
         </div>
         )
     }

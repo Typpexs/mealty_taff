@@ -123,7 +123,13 @@ function populateRecipe() {
     const Recipe = Schemas.Recipe
     const recette = {
         title: "Pates carbo", 
-        ingredients: ["5df11633b50d2935e8c29d80", "5df11634b50d2935e8c29d81", "5df11634b50d2935e8c29d82", "5df11635b50d2935e8c29d83"],
+        ingredients: [ {ingredient:"5df11633b50d2935e8c29d80", number: 75, unity: "5df265188061513db083eeae" }, 
+            { ingredient: "5df11634b50d2935e8c29d81", number: 50, unity: "5df265188061513db083eeb1" }, 
+            { ingredient: "5df11634b50d2935e8c29d82", number: 250, unity: "5df265188061513db083eeae" }, 
+            { ingredient:"5df11635b50d2935e8c29d83" }
+        ],
+
+
         ustensils: ["5df2652f8061513db083eeb6", "5df2652f8061513db083eeb7", "5df2652f8061513db083eeb8"],
         typeRecipeID: "5df26b2fbe12c2353c7e98ad",
         continentID: "5df26b3dbe12c2353c7e98af",
