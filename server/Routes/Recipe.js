@@ -58,5 +58,12 @@ module.exports = class Recipe {
             })
         });
 
+        recipe.get('/step/:id', function(req, res) {
+            let stepId = req.params.id;
+            Schemas.Step.findById(stepId, function(err, step) {
+                res.status(200).json({"step": step})
+            })
+        });
+
     }
 }

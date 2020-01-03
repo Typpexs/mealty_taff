@@ -26,12 +26,10 @@ export default function Ingredient(props) {
 
     return (
         <div className={classes.list}>
-            <Grid container alignItems="center">
                 <Grid item xs>
                     <Typography gutterBottom variant="body2">{ingredient.name}</Typography>
                 </Grid>
             { props.id.unity ? <Unity id={props.id} /> : undefined }
-            </Grid>
         </div>
     )
 }

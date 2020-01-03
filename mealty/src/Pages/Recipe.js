@@ -6,9 +6,12 @@ import Ustensils from "../Components/Ustensils";
 import Country from "../Components/Country";
 import Continent from "../Components/Continent";
 import TypeRecipe from "../Components/TypeRecipe";
+import Steps from "../Components/Steps";
+import Date from "../Components/Date";
 
 import Typography from '@material-ui/core/Typography';
 import './Recipe.css'
+
 
 class Recipe extends React.Component {
 
@@ -43,7 +46,10 @@ class Recipe extends React.Component {
                 ustensils: data.ustensils,
                 continent: data.continentID,
                 country: data.countryID,
-                typeRecipe: data.typeRecipeID
+                typeRecipe: data.typeRecipeID,
+                steps: data.steps,
+                dateCreated: data.dateCreated,
+                dateEdited: data.dateEdited
             });
         })
         .catch(function (error){
@@ -52,26 +58,23 @@ class Recipe extends React.Component {
     }
 
     render() {
-        const recipe = this.state.recipe
-        const ingredients = this.state.ingredients
-        const ustensils = this.state.ustensils
-        const continent = this.state.continent
-        const country = this.state.country
-        const typeRecipe = this.state.typeRecipe
         return(
         <div className="Recipe-body">
             <div>
                 <Typography variant="h6" className="Recipe-title">
-                    {recipe.title}
+                    {this.state.title}
                 </Typography>
-                <Ingredients ingredientsArray={ingredients}/>
-                <Ustensils ustensils={ustensils} />
+                <Ingredients ingredientsArray={this.state.ingredients}/>
+                <Ustensils ustensils={this.state.ustensils} />
                 <div>
-                    <Continent id={continent} />
-                    <Country id={country} />
-                    <TypeRecipe id={typeRecipe} />
+                    <Continent id={this.state.continent} />
+                    <Country id={this.state.country} />
+                    <TypeRecipe id={this.state.typeRecipe} />
                 </div>
             </div>
+            <Steps steps={this.state.steps} />
+            <Date created={this.state.dateCreated}
+                edited={this.state.dateEdited} />
         </div>
         )
     }

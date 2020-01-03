@@ -24,12 +24,10 @@ export default function Ustensil(props) {
 
     return (
         <div className={classes.list}>
-            <Grid container alignItems="center">
-                <Grid item xs>
-                    <Typography gutterBottom variant="body2">{ustensil.name}</Typography>
-                </Grid>
-            { ustensil.capacity ? <Unity id={{number: ustensil.capacity, unity: ustensil.unityID}} /> : undefined }
+            <Grid item xs>
+                <Typography gutterBottom variant="body2">{ustensil.name}</Typography>
             </Grid>
+            { ustensil.capacity ? <Unity id={{number: ustensil.capacity, unity: ustensil.unityID}} /> : undefined }
         </div>
     )
 }

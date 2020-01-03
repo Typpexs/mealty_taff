@@ -20,6 +20,7 @@ import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 
 import Routes from './Router';
 import Recipe from "../Pages/Recipe";
+import CreateRecipe from "../Pages/CreateRecipe";
 import App from '../App';
 
 
@@ -89,6 +90,10 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(3),
     backgroundColor: "#f5f5f5",
   },
+  textForList: {
+    textDecoration: 'none', 
+    color: 'black',
+  },
 }));
 
 export default function TopBar() {
@@ -156,7 +161,7 @@ export default function TopBar() {
                     <Link to={text.path} style={{ textDecoration: 'none' }} key={index} >
                         <ListItem button key={index}>
                             <ListItemIcon>{text.icon}</ListItemIcon>
-                            <ListItemText primary={text.sidebarName} />
+                            <ListItemText primary={text.sidebarName} className={classes.textForList} />
                         </ListItem>
                     </Link>
                 ))}
@@ -171,6 +176,9 @@ export default function TopBar() {
                 </Route>
                 <Route path="/recipe/5e00b02403d94a35d0445400">
                     <Recipe/>
+                </Route>
+                <Route path="/new">
+                    <CreateRecipe/>
                 </Route>
             </Switch>
       </main>

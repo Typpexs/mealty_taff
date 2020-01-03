@@ -27,7 +27,7 @@ export default function Ustensils(props) {
     return (
         <div>
             <Grid container spacing={2} alignItems="center">
-                <Grid item xs={12} md={6}>
+                <Grid item xs={12} md={2}>
                     <Typography variant="h6" className={classes.title}>
                         Ustensils
                     </Typography>
