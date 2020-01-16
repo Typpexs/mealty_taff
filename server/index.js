@@ -38,6 +38,10 @@ let routeRecipe = require('./Routes/Recipe');
 let recipe = new routeRecipe();
 app.use('/recipe', recipe.routes);
 
+let routeAll = require('./Routes/All');
+let all = new routeAll();
+app.use('/all', all.routes)
+
 app.listen(8080, function () {
   console.log('Example app listening on port 8080!')
 })

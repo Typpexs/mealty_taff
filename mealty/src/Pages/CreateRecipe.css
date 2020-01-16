@@ -23,3 +23,9 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+.CreateRecipe-formControl {
+  min-width: 120;
+  vertical-align: baseline !important;
+  display: inline-flex;
+}

@@ -16,7 +16,7 @@ export default function Ustensil(props) {
     const [ustensil, setUstensil] = React.useState("");
     React.useEffect(() => {
         const fetchData = async () => {
-            const result = await axios('http://localhost:8080/recipe/ustensil/'+props.id,);
+            const result = await axios(process.env.REACT_APP_BACKEND_URL+'recipe/ustensil/'+props.id,);
             setUstensil(result.data.ustensil);
         };
         fetchData();
